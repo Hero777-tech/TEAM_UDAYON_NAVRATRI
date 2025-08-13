@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disco Dandiya Festival 2025 - The Ultimate Navratri Experience</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Anton&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS for advanced styling and animations -->
     <style>
         /* Base styles */
         body {
@@ -31,9 +28,15 @@
         .hero-bg {
             background-image: 
                 linear-gradient(to top, rgba(13, 5, 24, 1) 10%, rgba(13, 5, 24, 0.6) 50%, rgba(13, 5, 24, 1) 90%), 
-                url('http://googleusercontent.com/file_content/0');
+                url('https://images.unsplash.com/photo-1604703815036-5197d532145a?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center 30%;
+        }
+
+        /* CSS for the logo */
+        .hero-logo {
+            mix-blend-mode: screen; /* This helps remove the black background */
+            filter: brightness(1.1); /* Slightly brighten the logo to make it pop */
         }
 
         /* Primary button with a modern gradient and hover effect */
@@ -48,10 +51,15 @@
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             box-shadow: 0 4px 15px rgba(244, 140, 6, 0.3);
             border: none;
+            cursor: pointer;
         }
-        .btn-primary:hover {
+        .btn-primary:hover:not(:disabled) {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(244, 140, 6, 0.5);
+        }
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
         /* Glassmorphism effect for cards */
@@ -96,7 +104,6 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Header -->
     <header id="header" class="bg-black/30 backdrop-blur-md fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="font-anton text-3xl font-bold text-white tracking-wider">TEAM <span class="text-orange-500">UDAYON</span></h1>
@@ -104,9 +111,10 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex flex-col items-center justify-center text-center p-4">
-        <div class="fade-in-element">
+    <section class="hero-bg min-h-screen flex flex-col items-center justify-center text-center p-4 relative">
+        <div class="z-20 fade-in-element">
+            <img src="/team_udayon.png" alt="Team Udayon Logo" class="hero-logo w-48 md:w-64 mx-auto mb-4">
+            
             <h2 class="font-anton text-4xl md:text-6xl text-white uppercase tracking-wider">The Biggest</h2>
             <h1 class="font-anton text-6xl md:text-9xl text-orange-500 my-2 uppercase tracking-widest" style="text-shadow: 3px 3px 0px rgba(0,0,0,0.3);">Disco Dandiya</h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">Get ready to dance all night at the most electrifying Navratri festival of the year!</p>
@@ -116,43 +124,36 @@
         </div>
     </section>
 
-    <!-- Countdown Timer Section -->
     <section class="py-16 bg-black/20">
         <div class="container mx-auto px-4 text-center">
             <h2 class="font-anton text-4xl text-white uppercase tracking-wider mb-8">The Celebration Begins In</h2>
             <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto">
-                <!-- Countdown boxes will be injected by JavaScript -->
-            </div>
+                </div>
         </div>
     </section>
 
-    <!-- Event Details Section -->
     <section id="details" class="py-20">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Date Card -->
                 <div class="glass-card p-8 text-center fade-in-element" style="animation-delay: 100ms;">
                     <svg class="w-16 h-16 mx-auto mb-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     <h3 class="font-anton text-3xl font-bold mb-2 text-white">Date</h3>
                     <p class="text-lg text-gray-300">23rd September 2025</p>
                 </div>
-                <!-- Time Card -->
                 <div class="glass-card p-8 text-center fade-in-element" style="animation-delay: 200ms;">
                      <svg class="w-16 h-16 mx-auto mb-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <h3 class="font-anton text-3xl font-bold mb-2 text-white">Time</h3>
                     <p class="text-lg text-gray-300">6 PM Onwards</p>
                 </div>
-                <!-- Venue Card -->
                 <div class="glass-card p-8 text-center fade-in-element" style="animation-delay: 300ms;">
                     <svg class="w-16 h-16 mx-auto mb-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                     <h3 class="font-anton text-3xl font-bold mb-2 text-white">Venue</h3>
-                    <p class="text-lg text-gray-300">Sagarika Resort</p>
+                    <p class="text-lg text-gray-300">Sagarika Resort, Rongpur, Silchar</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
     <section id="booking" class="py-20 bg-black/20">
         <div class="container mx-auto px-4">
             <div class="max-w-2xl mx-auto glass-card rounded-2xl p-8 shadow-2xl">
@@ -164,7 +165,7 @@
                         <h3 class="text-2xl font-bold text-white">Early Bird Pass</h3>
                         <p class="text-orange-400">Limited time offer!</p>
                     </div>
-                    <p class="text-4xl font-bold text-white mt-2 md:mt-0">₹299</p>
+                    <p class="text-4xl font-bold text-white mt-2 md:mt-0">₹249</p>
                 </div>
 
                 <form id="booking-form">
@@ -189,7 +190,6 @@
         </div>
     </section>
     
-    <!-- Footer -->
     <footer class="py-10 text-center border-t border-white/10">
         <div class="container mx-auto px-4">
             <h3 class="font-anton text-2xl text-orange-500 mb-2">Contact Us</h3>
@@ -208,7 +208,6 @@
         </div>
     </footer>
 
-    <!-- Payment Status Modal -->
     <div id="payment-modal" class="modal fixed inset-0 bg-black/80 items-center justify-center z-50 p-4">
         <div class="glass-card max-w-sm w-full p-8 rounded-2xl text-center">
             <div id="modal-icon" class="mb-4"></div>
@@ -218,7 +217,6 @@
         </div>
     </div>
 
-    <!-- Razorpay & Custom Scripts -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -226,29 +224,20 @@
             // --- Countdown Timer Logic ---
             const countdownDate = new Date("Sep 23, 2025 18:00:00").getTime();
             const countdownElement = document.getElementById('countdown');
-
             const updateCountdown = setInterval(function() {
                 const now = new Date().getTime();
                 const distance = countdownDate - now;
-
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                countdownElement.innerHTML = `
-                    <div class="countdown-box p-4"><span class="text-5xl">${days}</span><br>Days</div>
-                    <div class="countdown-box p-4"><span class="text-5xl">${hours}</span><br>Hours</div>
-                    <div class="countdown-box p-4"><span class="text-5xl">${minutes}</span><br>Minutes</div>
-                    <div class="countdown-box p-4"><span class="text-5xl">${seconds}</span><br>Seconds</div>
-                `;
-
+                countdownElement.innerHTML = `<div class="countdown-box p-4"><span class="text-5xl">${days}</span><br>Days</div> <div class="countdown-box p-4"><span class="text-5xl">${hours}</span><br>Hours</div> <div class="countdown-box p-4"><span class="text-5xl">${minutes}</span><br>Minutes</div> <div class="countdown-box p-4"><span class="text-5xl">${seconds}</span><br>Seconds</div>`;
                 if (distance < 0) {
                     clearInterval(updateCountdown);
                     countdownElement.innerHTML = `<div class="col-span-4 font-anton text-4xl text-white uppercase">The Event is Live!</div>`;
                 }
             }, 1000);
-
+            
             // --- Scroll Animations Logic ---
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -257,8 +246,7 @@
                     }
                 });
             }, { threshold: 0.1 });
-
-            document.querySelectorAll('.glass-card').forEach(el => observer.observe(el));
+            document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
             
             // --- Header background change on scroll ---
             const header = document.getElementById('header');
@@ -270,7 +258,7 @@
                 }
             };
 
-            // --- Razorpay and Modal Logic ---
+            // --- UPDATED RAZORPAY AND MODAL LOGIC ---
             const bookingForm = document.getElementById('booking-form');
             const modal = document.getElementById('payment-modal');
             const modalTitle = document.getElementById('modal-title');
@@ -279,11 +267,17 @@
             const modalCloseBtn = document.getElementById('modal-close');
 
             function showModal(status, title, message) {
+                // Reset classes first
                 modalTitle.className = 'text-3xl font-bold mb-2';
+                modalIcon.innerHTML = '';
+                
                 if (status === 'success') {
                     modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
                     modalTitle.classList.add('text-green-400');
-                } else {
+                } else if (status === 'processing') {
+                    modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-blue-400 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`;
+                    modalTitle.classList.add('text-blue-400');
+                } else { // error
                     modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
                     modalTitle.classList.add('text-red-400');
                 }
@@ -294,33 +288,87 @@
 
             modalCloseBtn.addEventListener('click', () => modal.classList.remove('is-open'));
 
-            bookingForm.addEventListener('submit', function(e) {
+            bookingForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
+                const submitButton = document.getElementById('rzp-button1');
+                submitButton.disabled = true;
+                submitButton.textContent = 'Processing...';
+
                 const quantity = document.getElementById('quantity').value;
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
-                const amount = 299 * quantity;
+                const amount = 249 * quantity; // <<-- PRICE UPDATED HERE
 
-                var options = {
-                    "key": "rzp_live_tLiXZAzZbyPWcv", // IMPORTANT: Enter the Key ID from your Razorpay Dashboard
-                    "amount": amount * 100,
-                    "currency": "INR",
-                    "name": "Disco Dandiya Festival",
-                    "description": `Early Bird Pass (x${quantity})`,
-                    "image": "https://i.imgur.com/3g7bJsS.png",
-                    "handler": function (response){
-                        showModal('success', 'Payment Successful!', `Your Payment ID is ${response.razorpay_payment_id}. A confirmation will be sent to your email.`);
-                        bookingForm.reset();
-                    },
-                    "prefill": { "name": name, "email": email },
-                    "notes": { "event": "Disco Dandiya 2025", "quantity": quantity },
-                    "theme": { "color": "#0d0518" }
-                };
-                var rzp1 = new Razorpay(options);
-                rzp1.on('payment.failed', function (response){
-                    showModal('error', 'Payment Failed', `Please try again. Error: ${response.error.description}`);
-                });
-                rzp1.open();
+                // Step 1: Create the order on your server by calling the serverless function
+                try {
+                    const orderResponse = await fetch('/api/create-order', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ amount: amount * 100, currency: 'INR' }),
+                    });
+
+                    if (!orderResponse.ok) throw new Error('Failed to create order.');
+                    
+                    const order = await orderResponse.json();
+
+                    // Step 2: Open Razorpay Checkout with the order_id from the server
+                    const options = {
+                        "key": "rzp_live_tLiXZAzZbyPWcv", // This is your public key
+                        "amount": order.amount,
+                        "currency": "INR",
+                        "name": "Disco Dandiya Festival",
+                        "description": `Early Bird Pass (x${quantity})`,
+                        "image": "https://i.imgur.com/wP42Lz6.png", // Updated logo URL
+                        "order_id": order.id,
+                        "handler": function(response) {
+                            showModal('processing', 'Verifying Payment...', 'Please do not close this window.');
+                            
+                            // Step 3: Verify the payment on your server
+                            fetch('/api/verify-payment', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    razorpay_payment_id: response.razorpay_payment_id,
+                                    order_id: response.razorpay_order_id,
+                                    razorpay_signature: response.razorpay_signature,
+                                    amount: order.amount
+                                })
+                            })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.status === 'success') {
+                                    showModal('success', 'Payment Successful!', `Your booking is confirmed! Payment ID: ${data.paymentId}`);
+                                    bookingForm.reset();
+                                } else {
+                                    showModal('error', 'Verification Failed', data.message || 'Please contact support with your payment ID.');
+                                }
+                            }).catch(() => {
+                                showModal('error', 'Error', 'Could not verify payment. Please contact support.');
+                            })
+                            .finally(() => {
+                               submitButton.disabled = false;
+                               submitButton.textContent = 'Proceed to Pay';
+                            });
+                        },
+                        "prefill": { "name": name, "email": email },
+                        "notes": { "event": "Disco Dandiya 2025", "quantity": quantity },
+                        "theme": { "color": "#0d0518" }
+                    };
+
+                    const rzp1 = new Razorpay(options);
+                    rzp1.on('payment.failed', function(response) {
+                        showModal('error', 'Payment Failed', `Please try again. Error: ${response.error.description}`);
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Proceed to Pay';
+                    });
+                    
+                    rzp1.open();
+
+                } catch (error) {
+                    showModal('error', 'Error', 'Could not initiate payment. Please try again.');
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Proceed to Pay';
+                }
             });
         });
     </script>

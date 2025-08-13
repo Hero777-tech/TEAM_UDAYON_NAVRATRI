@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disco Dandiya: Neon Nights 2025</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Teko:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for Neon Theme -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0A001A; /* Deep space blue/purple */
+            color: #E0E0E0;
+        }
+
+        .font-teko {
+            font-family: 'Teko', sans-serif;
+        }
+
+        .hero-bg {
+            /* Placeholder for a cool, abstract neon/dance video or image */
+            background-image: 
+                linear-gradient(to top, rgba(10, 0, 26, 1) 40%, rgba(10, 0, 26, 0.5) 70%),
+                url('https://placehold.co/1920x1080/0A001A/FFFFFF?text=TEAM UDAYON');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Neon Glow Effect for Text */
+        .text-glow-blue {
+            text-shadow: 0 0 5px #00C2FF, 0 0 10px #00C2FF, 0 0 20px #00C2FF, 0 0 40px #0077FF;
+        }
+        .text-glow-pink {
+            text-shadow: 0 0 5px #FF00E5, 0 0 10px #FF00E5, 0 0 20px #FF00E5, 0 0 40px #D400BE;
+        }
+
+        /* Neon Button Styling */
+        .btn-neon {
+            position: relative;
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            color: #00C2FF;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: 0.5s;
+            overflow: hidden;
+            border: 2px solid #00C2FF;
+            border-radius: 50px;
+        }
+        .btn-neon:hover {
+            background: #00C2FF;
+            color: #0A001A;
+            box-shadow: 0 0 5px #00C2FF, 0 0 25px #00C2FF, 0 0 50px #00C2FF, 0 0 100px #00C2FF;
+        }
+        
+        /* Glassmorphism Card with Neon Border */
+        .neon-card {
+            background: rgba(10, 0, 26, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 194, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .neon-card:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(from 180deg at 50% 50%, rgba(255, 255, 255, 0) 0%, #00C2FF 50%, rgba(255, 255, 255, 0) 100%);
+            transform-origin: center;
+            animation: rotate 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .neon-card:hover:before {
+            opacity: 0.3;
+        }
+        .neon-card .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Animation for elements fading in on scroll */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-element {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        
+        /* Custom modal styles for payment feedback */
+        .modal { display: none; }
+        .modal.is-open { display: flex; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="bg-black/30 backdrop-blur-md fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="font-teko text-3xl font-bold text-white tracking-wider">TEAM <span class="text-glow-blue">UDAYON</span></h1>
+            <a href="#booking" class="btn-neon hidden md:inline-block !py-2 !px-6 !text-sm">Book Pass</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center p-4">
+        <div>
+            <h2 class="font-teko text-5xl md:text-7xl text-white uppercase tracking-wider">The Ultimate</h2>
+            <h1 class="font-teko text-7xl md:text-9xl text-white my-2 uppercase tracking-widest">
+                <span class="text-glow-blue">Disco</span> <span class="text-glow-pink">Dandiya</span>
+            </h1>
+            <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">Experience a Neon Revolution of Dance, Music, and Lights.</p>
+            <a href="#booking" class="btn-neon text-lg">
+                Secure Your Entry
+            </a>
+        </div>
+    </section>
+
+    <!-- Event Highlights Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="font-teko text-5xl md:text-6xl text-white text-center mb-12 tracking-wider">Event <span class="text-glow-pink">Highlights</span></h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="fade-in-element">
+                    <div class="p-6 neon-card h-full"><div class="content">
+                        <img src="https://placehold.co/100x100/0A001A/00C2FF?text=DJ" alt="DJ Icon" class="mx-auto mb-4 rounded-full border-2 border-cyan-500">
+                        <h3 class="font-teko text-3xl text-white mb-2">Live Pro DJ</h3>
+                        <p class="text-gray-400">Spinning the best of Bollywood, Garba, and EDM tracks all night long.</p>
+                    </div></div>
+                </div>
+                <div class="fade-in-element" style="animation-delay: 200ms;">
+                    <div class="p-6 neon-card h-full"><div class="content">
+                        <img src="https://placehold.co/100x100/0A001A/FF00E5?text=Food" alt="Food Icon" class="mx-auto mb-4 rounded-full border-2 border-pink-500">
+                        <h3 class="font-teko text-3xl text-white mb-2">Gourmet Food Stalls</h3>
+                        <p class="text-gray-400">A wide variety of delicious food and beverages to keep your energy high.</p>
+                    </div></div>
+                </div>
+                <div class="fade-in-element" style="animation-delay: 400ms;">
+                    <div class="p-6 neon-card h-full"><div class="content">
+                        <img src="https://placehold.co/100x100/0A001A/00C2FF?text=Photo" alt="Photo Booth Icon" class="mx-auto mb-4 rounded-full border-2 border-cyan-500">
+                        <h3 class="font-teko text-3xl text-white mb-2">Neon Photo Booths</h3>
+                        <p class="text-gray-400">Capture your glowing moments with our themed, interactive photo booths.</p>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking Section -->
+    <section id="booking" class="py-24 bg-black/30">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto neon-card">
+                <div class="content p-8 md:p-12">
+                    <h2 class="font-teko text-5xl font-bold text-center mb-2 text-white">Join The <span class="text-glow-blue">Party</span></h2>
+                    <p class="text-center text-gray-400 mb-10">Tickets are limited. Book now to avoid disappointment!</p>
+                    
+                    <div class="flex justify-between items-center mb-8 bg-black/50 p-5 rounded-lg border border-gray-700">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Early Bird Pass</h3>
+                            <p class="text-cyan-400 font-semibold">Includes entry & neon accessories</p>
+                        </div>
+                        <p class="text-4xl font-bold text-white">₹299</p>
+                    </div>
+
+                    <form id="booking-form">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-bold text-gray-300 mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full bg-gray-900/70 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-bold text-gray-300 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required class="w-full bg-gray-900/70 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="quantity" class="block text-sm font-bold text-gray-300 mb-2">Quantity</label>
+                                <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" required class="w-full bg-gray-900/70 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                            </div>
+                        </div>
+                        <button type="submit" id="rzp-button1" class="w-full btn-neon text-lg mt-8">
+                            Proceed to Payment
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 text-center">
+        <div class="container mx-auto px-6">
+            <h3 class="font-teko text-3xl text-white mb-2">Contact Us</h3>
+            <p class="text-lg text-gray-400">8135018273 / 9365172605 / 7002453563</p>
+            <div class="mt-8 flex justify-center items-center flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500">
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/terms" target="_blank" class="hover:text-cyan-400 transition-colors">Terms & Conditions</a>
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/privacy" target="_blank" class="hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/refund" target="_blank" class="hover:text-cyan-400 transition-colors">Refunds</a>
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/contact_us" target="_blank" class="hover:text-cyan-400 transition-colors">Contact Us</a>
+            </div>
+            <p class="mt-8 text-sm text-gray-600">&copy; 2025 Team Udayon. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Payment Status Modal -->
+    <div id="payment-modal" class="modal fixed inset-0 bg-black/80 items-center justify-center z-50 p-4">
+        <div class="neon-card max-w-sm w-full">
+            <div class="content p-8 text-center">
+                <div id="modal-icon" class="mb-4"></div>
+                <h3 id="modal-title" class="text-2xl font-bold mb-2 text-white"></h3>
+                <p id="modal-message" class="text-gray-300 mb-6"></p>
+                <button id="modal-close" class="btn-neon !py-2 !px-6 !text-sm">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Razorpay & Custom Scripts -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Scroll Animations Logic ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-element');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
+
+            // --- Razorpay and Modal Logic ---
+            const bookingForm = document.getElementById('booking-form');
+            const modal = document.getElementById('payment-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const modalIcon = document.getElementById('modal-icon');
+            const modalCloseBtn = document.getElementById('modal-close');
+
+            function showModal(status, title, message) {
+                if (status === 'success') {
+                    modalIcon.innerHTML = `<svg class="w-16 h-16 mx-auto text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+                } else {
+                    modalIcon.innerHTML = `<svg class="w-16 h-16 mx-auto text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+                }
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modal.classList.add('is-open');
+            }
+
+            modalCloseBtn.addEventListener('click', () => modal.classList.remove('is-open'));
+
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const quantity = document.getElementById('quantity').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const amount = 299 * quantity;
+
+                var options = {
+                    "key": "YOUR_KEY_ID", // IMPORTANT: Enter the Key ID from your Razorpay Dashboard
+                    "amount": amount * 100,
+                    "currency": "INR",
+                    "name": "Disco Dandiya: Neon Nights",
+                    "description": `Early Bird Pass (x${quantity})`,
+                    "image": "https://i.imgur.com/3g7bJsS.png",
+                    "handler": function (response){
+                        showModal('success', 'Payment Successful!', `Your Payment ID is ${response.razorpay_payment_id}. A confirmation will be sent to your email.`);
+                        bookingForm.reset();
+                    },
+                    "prefill": { "name": name, "email": email },
+                    "notes": { "event": "Disco Dandiya 2025", "quantity": quantity },
+                    "theme": { "color": "#0A001A" }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.on('payment.failed', function (response){
+                    showModal('error', 'Payment Failed', `Please try again. Error: ${response.error.description}`);
+                });
+                rzp1.open();
+            });
+        });
+    </script>
+</body>
+</html>
