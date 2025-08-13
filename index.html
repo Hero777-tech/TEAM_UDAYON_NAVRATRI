@@ -3,101 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disco Dandiya Festival - Ticket Booking</title>
+    <title>Disco Dandiya Festival 2025 - The Ultimate Navratri Experience</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Anton&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for advanced styling and animations -->
     <style>
-        /* Custom styles inspired by the event poster */
+        /* Base styles */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #110c1f; /* Deep purple background */
+            background-color: #0d0518; /* Darker, richer purple */
+            color: #e5e7eb;
         }
-        .font-teko {
-            font-family: 'Teko', sans-serif;
+
+        /* Using a modern, bold font for headings */
+        .font-anton {
+            font-family: 'Anton', sans-serif;
         }
+
+        /* Hero section styling with a more subtle gradient */
         .hero-bg {
-            /* Using the provided poster as the background with a gradient overlay for text readability */
-            background-image: linear-gradient(to top, rgba(17, 12, 31, 1) 0%, rgba(17, 12, 31, 0.7) 50%, rgba(17, 12, 31, 1) 100%), url('http://googleusercontent.com/file_content/0');
+            background-image: 
+                linear-gradient(to top, rgba(13, 5, 24, 1) 10%, rgba(13, 5, 24, 0.6) 50%, rgba(13, 5, 24, 1) 90%), 
+                url('http://googleusercontent.com/file_content/0');
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
         }
+
+        /* Primary button with a modern gradient and hover effect */
         .btn-primary {
-            /* Styling buttons to match the poster's aesthetic */
-            background-color: #c539c5; /* Vibrant purple/magenta */
-            background-image: linear-gradient(45deg, #c539c5 0%, #a340a3 100%);
-            color: white;
-            font-weight: 600;
-            border-radius: 9999px;
-            padding: 0.75rem 2rem;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 0 15px rgba(197, 57, 197, 0.6);
+            background-image: linear-gradient(45deg, #e85d04 0%, #f48c06 100%);
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            padding: 1rem 2.5rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(244, 140, 6, 0.3);
+            border: none;
         }
         .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(197, 57, 197, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(244, 140, 6, 0.5);
         }
-        .text-glow {
-            /* Text shadow for a glowing effect, similar to the poster's text */
-            text-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
+
+        /* Glassmorphism effect for cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
-        .card {
-            background-color: rgba(40, 29, 71, 0.6); /* Translucent card background */
-            border: 1px solid rgba(196, 113, 255, 0.3);
-            backdrop-filter: blur(10px);
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
+        /* Countdown timer styling */
+        .countdown-box {
+            background: linear-gradient(145deg, #e85d04, #f48c06);
+            color: #0d0518;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        .countdown-box span:first-child {
+            font-family: 'Anton', sans-serif;
+        }
+
+        /* Animation for elements fading in on scroll */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-element {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+        
         /* Custom modal styles for payment feedback */
-        .modal {
-            display: none; /* Hidden by default */
-        }
-        .modal.is-open {
-            display: flex; /* Show when active */
-        }
+        .modal { display: none; }
+        .modal.is-open { display: flex; }
     </style>
 </head>
-<body class="text-gray-200">
+<body class="overflow-x-hidden">
 
     <!-- Header -->
-    <header class="bg-black/30 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+    <header id="header" class="bg-black/30 backdrop-blur-md fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="font-teko text-3xl font-bold text-amber-400 text-glow tracking-wider">TEAM UDAYON</h1>
-            <a href="#booking" class="btn-primary hidden md:inline-block">Book Tickets</a>
+            <h1 class="font-anton text-3xl font-bold text-white tracking-wider">TEAM <span class="text-orange-500">UDAYON</span></h1>
+            <a href="#booking" class="btn-primary hidden md:inline-block !py-2 !px-6">Book Now</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center justify-center text-center pt-20">
-        <div class="container mx-auto px-4">
-            <h2 class="font-teko text-5xl md:text-7xl font-bold text-white uppercase tracking-wide">Presents</h2>
-            <h1 class="font-teko text-6xl md:text-9xl font-extrabold text-amber-400 text-glow uppercase tracking-wider my-2">Disco Dandiya Festival</h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-10">The Biggest Dance All Night Festival!</p>
-            <a href="#booking" class="btn-primary text-xl py-4 px-10">
-                Get Your Early Bird Pass!
+    <section class="hero-bg min-h-screen flex flex-col items-center justify-center text-center p-4">
+        <div class="fade-in-element">
+            <h2 class="font-anton text-4xl md:text-6xl text-white uppercase tracking-wider">The Biggest</h2>
+            <h1 class="font-anton text-6xl md:text-9xl text-orange-500 my-2 uppercase tracking-widest" style="text-shadow: 3px 3px 0px rgba(0,0,0,0.3);">Disco Dandiya</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">Get ready to dance all night at the most electrifying Navratri festival of the year!</p>
+            <a href="#booking" class="btn-primary text-lg">
+                Get Your Early Bird Pass
             </a>
+        </div>
+    </section>
+
+    <!-- Countdown Timer Section -->
+    <section class="py-16 bg-black/20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-anton text-4xl text-white uppercase tracking-wider mb-8">The Celebration Begins In</h2>
+            <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-2xl mx-auto">
+                <!-- Countdown boxes will be injected by JavaScript -->
+            </div>
         </div>
     </section>
 
     <!-- Event Details Section -->
     <section id="details" class="py-20">
-        <div class="container mx-auto px-4 text-center">
-            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <!-- Date -->
-                <div class="card p-6 rounded-2xl text-center">
-                    <div class="mb-4 text-amber-400"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div>
-                    <h3 class="font-teko text-4xl font-bold mb-2 text-white">Date</h3>
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Date Card -->
+                <div class="glass-card p-8 text-center fade-in-element" style="animation-delay: 100ms;">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <h3 class="font-anton text-3xl font-bold mb-2 text-white">Date</h3>
                     <p class="text-lg text-gray-300">23rd September 2025</p>
                 </div>
-                <!-- Time -->
-                <div class="card p-6 rounded-2xl text-center">
-                     <div class="mb-4 text-amber-400"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                    <h3 class="font-teko text-4xl font-bold mb-2 text-white">Time</h3>
+                <!-- Time Card -->
+                <div class="glass-card p-8 text-center fade-in-element" style="animation-delay: 200ms;">
+                     <svg class="w-16 h-16 mx-auto mb-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="font-anton text-3xl font-bold mb-2 text-white">Time</h3>
                     <p class="text-lg text-gray-300">6 PM Onwards</p>
                 </div>
-                <!-- Venue -->
-                <div class="card p-6 rounded-2xl text-center">
-                    <div class="mb-4 text-amber-400"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
-                    <h3 class="font-teko text-4xl font-bold mb-2 text-white">Venue</h3>
+                <!-- Venue Card -->
+                <div class="glass-card p-8 text-center fade-in-element" style="animation-delay: 300ms;">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <h3 class="font-anton text-3xl font-bold mb-2 text-white">Venue</h3>
                     <p class="text-lg text-gray-300">Sagarika Resort</p>
                 </div>
             </div>
@@ -107,33 +155,33 @@
     <!-- Booking Section -->
     <section id="booking" class="py-20 bg-black/20">
         <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto card rounded-2xl p-8 shadow-2xl">
-                <h2 class="font-teko text-5xl font-bold text-center mb-2 text-amber-400 text-glow">Book Your Ticket</h2>
-                <p class="text-center text-gray-400 mb-8">Fill in your details to secure your spot!</p>
+            <div class="max-w-2xl mx-auto glass-card rounded-2xl p-8 shadow-2xl">
+                <h2 class="font-anton text-5xl font-bold text-center mb-2 text-orange-500">Book Your Pass</h2>
+                <p class="text-center text-gray-400 mb-8">Don't miss out! Early bird tickets are limited.</p>
                 
-                <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-black/20 p-4 rounded-lg">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-black/30 p-4 rounded-lg">
                     <div>
-                        <h3 class="text-2xl font-bold text-fuchsia-400">Early Bird Pass</h3>
-                        <p class="text-gray-400">Limited passes available!</p>
+                        <h3 class="text-2xl font-bold text-white">Early Bird Pass</h3>
+                        <p class="text-orange-400">Limited time offer!</p>
                     </div>
                     <p class="text-4xl font-bold text-white mt-2 md:mt-0">₹299</p>
                 </div>
 
                 <form id="booking-form">
                     <div class="mb-4">
-                        <label for="name" class="block text-lg font-medium text-gray-300 mb-2">Full Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required class="w-full bg-gray-900/50 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required class="w-full bg-gray-900/50 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-orange-500 transition-colors">
                     </div>
                     <div class="mb-4">
-                        <label for="email" class="block text-lg font-medium text-gray-300 mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full bg-gray-900/50 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full bg-gray-900/50 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-orange-500 transition-colors">
                     </div>
                     <div class="mb-6">
-                        <label for="quantity" class="block text-lg font-medium text-gray-300 mb-2">Quantity</label>
-                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" required class="w-full bg-gray-900/50 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+                        <label for="quantity" class="block text-sm font-medium text-gray-300 mb-2">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" required class="w-full bg-gray-900/50 border-2 border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-orange-500 transition-colors">
                     </div>
 
-                    <button type="submit" id="rzp-button1" class="w-full btn-primary text-xl py-4">
+                    <button type="submit" id="rzp-button1" class="w-full btn-primary text-xl">
                         Proceed to Pay
                     </button>
                 </form>
@@ -142,91 +190,138 @@
     </section>
     
     <!-- Footer -->
-    <footer class="py-10 text-center border-t border-gray-800">
+    <footer class="py-10 text-center border-t border-white/10">
         <div class="container mx-auto px-4">
-            <h3 class="font-teko text-2xl text-amber-400 mb-2">Contact Us</h3>
+            <h3 class="font-anton text-2xl text-orange-500 mb-2">Contact Us</h3>
             <p class="text-lg text-gray-400">8135018273 / 9365172605 / 7002453563</p>
+            <div class="mt-6 flex justify-center items-center space-x-4 md:space-x-6 text-sm text-gray-400">
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/terms" target="_blank" class="hover:text-orange-400 transition-colors">Terms & Conditions</a>
+                <span class="text-gray-600">|</span>
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/privacy" target="_blank" class="hover:text-orange-400 transition-colors">Privacy Policy</a>
+                 <span class="text-gray-600">|</span>
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/refund" target="_blank" class="hover:text-orange-400 transition-colors">Refunds</a>
+                 <span class="text-gray-600">|</span>
+                <a href="https://merchant.razorpay.com/policy/PwJcDPfNAJdAyN/contact_us" target="_blank" class="hover:text-orange-400 transition-colors">Contact Us</a>
+            </div>
+            <p class="mt-6 text-xs text-gray-600">Policies created by Razorpay</p>
             <p class="mt-4 text-sm text-gray-500">&copy; 2025 Team Udayon. All Rights Reserved.</p>
         </div>
     </footer>
 
     <!-- Payment Status Modal -->
-    <div id="payment-modal" class="modal fixed inset-0 bg-black/80 items-center justify-center z-50">
-        <div class="card max-w-sm w-full mx-4 p-8 rounded-2xl text-center">
+    <div id="payment-modal" class="modal fixed inset-0 bg-black/80 items-center justify-center z-50 p-4">
+        <div class="glass-card max-w-sm w-full p-8 rounded-2xl text-center">
             <div id="modal-icon" class="mb-4"></div>
             <h3 id="modal-title" class="text-3xl font-bold mb-2"></h3>
             <p id="modal-message" class="text-gray-300 mb-6"></p>
-            <button id="modal-close" class="btn-primary">Close</button>
+            <button id="modal-close" class="btn-primary !py-2">Close</button>
         </div>
     </div>
 
-    <!-- Razorpay Checkout Script -->
+    <!-- Razorpay & Custom Scripts -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        const bookingForm = document.getElementById('booking-form');
-        const modal = document.getElementById('payment-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalMessage = document.getElementById('modal-message');
-        const modalIcon = document.getElementById('modal-icon');
-        const modalCloseBtn = document.getElementById('modal-close');
+        document.addEventListener('DOMContentLoaded', function() {
 
-        // Function to show the modal
-        function showModal(status, title, message) {
-            if (status === 'success') {
-                modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-            } else {
-                modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
-            }
-            modalTitle.textContent = title;
-            modalMessage.textContent = message;
-            modal.classList.add('is-open');
-        }
+            // --- Countdown Timer Logic ---
+            const countdownDate = new Date("Sep 23, 2025 18:00:00").getTime();
+            const countdownElement = document.getElementById('countdown');
 
-        // Close modal event
-        modalCloseBtn.addEventListener('click', () => {
-            modal.classList.remove('is-open');
-        });
+            const updateCountdown = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
 
-        // Handle form submission
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                countdownElement.innerHTML = `
+                    <div class="countdown-box p-4"><span class="text-5xl">${days}</span><br>Days</div>
+                    <div class="countdown-box p-4"><span class="text-5xl">${hours}</span><br>Hours</div>
+                    <div class="countdown-box p-4"><span class="text-5xl">${minutes}</span><br>Minutes</div>
+                    <div class="countdown-box p-4"><span class="text-5xl">${seconds}</span><br>Seconds</div>
+                `;
 
-            const quantity = document.getElementById('quantity').value;
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const amount = 299 * quantity;
+                if (distance < 0) {
+                    clearInterval(updateCountdown);
+                    countdownElement.innerHTML = `<div class="col-span-4 font-anton text-4xl text-white uppercase">The Event is Live!</div>`;
+                }
+            }, 1000);
 
-            var options = {
-                "key": "YOUR_KEY_ID", // IMPORTANT: Enter the Key ID from your Razorpay Dashboard
-                "amount": amount * 100, // Amount is in currency subunits (paise)
-                "currency": "INR",
-                "name": "Disco Dandiya Festival",
-                "description": `Early Bird Pass (x${quantity})`,
-                "image": "https://i.imgur.com/3g7bJsS.png", // A sample logo
-                "handler": function (response){
-                    // This function is called on successful payment
-                    showModal('success', 'Payment Successful!', `Thank you for your booking! Your Payment ID is ${response.razorpay_payment_id}. A confirmation will be sent to your email.`);
-                    // Here, you would typically send the payment ID and booking details to your server to save in a database.
-                    bookingForm.reset();
-                },
-                "prefill": {
-                    "name": name,
-                    "email": email,
-                },
-                "notes": {
-                    "event": "Disco Dandiya 2025",
-                    "quantity": quantity
-                },
-                "theme": {
-                    "color": "#c539c5"
+            // --- Scroll Animations Logic ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-element');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.glass-card').forEach(el => observer.observe(el));
+            
+            // --- Header background change on scroll ---
+            const header = document.getElementById('header');
+            window.onscroll = function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-black/80');
+                } else {
+                    header.classList.remove('bg-black/80');
                 }
             };
-            var rzp1 = new Razorpay(options);
-            rzp1.on('payment.failed', function (response){
-                // This function is called on payment failure
-                showModal('error', 'Payment Failed', `Something went wrong. Please try again. Error: ${response.error.description}`);
+
+            // --- Razorpay and Modal Logic ---
+            const bookingForm = document.getElementById('booking-form');
+            const modal = document.getElementById('payment-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const modalIcon = document.getElementById('modal-icon');
+            const modalCloseBtn = document.getElementById('modal-close');
+
+            function showModal(status, title, message) {
+                modalTitle.className = 'text-3xl font-bold mb-2';
+                if (status === 'success') {
+                    modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+                    modalTitle.classList.add('text-green-400');
+                } else {
+                    modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+                    modalTitle.classList.add('text-red-400');
+                }
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modal.classList.add('is-open');
+            }
+
+            modalCloseBtn.addEventListener('click', () => modal.classList.remove('is-open'));
+
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const quantity = document.getElementById('quantity').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const amount = 299 * quantity;
+
+                var options = {
+                    "key": "YOUR_KEY_ID", // IMPORTANT: Enter the Key ID from your Razorpay Dashboard
+                    "amount": amount * 100,
+                    "currency": "INR",
+                    "name": "Disco Dandiya Festival",
+                    "description": `Early Bird Pass (x${quantity})`,
+                    "image": "https://i.imgur.com/3g7bJsS.png",
+                    "handler": function (response){
+                        showModal('success', 'Payment Successful!', `Your Payment ID is ${response.razorpay_payment_id}. A confirmation will be sent to your email.`);
+                        bookingForm.reset();
+                    },
+                    "prefill": { "name": name, "email": email },
+                    "notes": { "event": "Disco Dandiya 2025", "quantity": quantity },
+                    "theme": { "color": "#0d0518" }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.on('payment.failed', function (response){
+                    showModal('error', 'Payment Failed', `Please try again. Error: ${response.error.description}`);
+                });
+                rzp1.open();
             });
-            rzp1.open();
         });
     </script>
 </body>
