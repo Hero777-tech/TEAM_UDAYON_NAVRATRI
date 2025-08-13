@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disco Dandiya Festival - Ticket Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles inspired by the event poster */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #110c1f; /* Deep purple background */
+        }
+        .font-teko {
+            font-family: 'Teko', sans-serif;
+        }
+        .hero-bg {
+            /* Using the provided poster as the background with a gradient overlay for text readability */
+            background-image: linear-gradient(to top, rgba(17, 12, 31, 1) 0%, rgba(17, 12, 31, 0.7) 50%, rgba(17, 12, 31, 1) 100%), url('http://googleusercontent.com/file_content/0');
+            background-size: cover;
+            background-position: center;
+        }
+        .btn-primary {
+            /* Styling buttons to match the poster's aesthetic */
+            background-color: #c539c5; /* Vibrant purple/magenta */
+            background-image: linear-gradient(45deg, #c539c5 0%, #a340a3 100%);
+            color: white;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.75rem 2rem;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(197, 57, 197, 0.6);
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(197, 57, 197, 0.9);
+        }
+        .text-glow {
+            /* Text shadow for a glowing effect, similar to the poster's text */
+            text-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
+        }
+        .card {
+            background-color: rgba(40, 29, 71, 0.6); /* Translucent card background */
+            border: 1px solid rgba(196, 113, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        /* Custom modal styles for payment feedback */
+        .modal {
+            display: none; /* Hidden by default */
+        }
+        .modal.is-open {
+            display: flex; /* Show when active */
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Header -->
+    <header class="bg-black/30 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="font-teko text-3xl font-bold text-amber-400 text-glow tracking-wider">TEAM UDAYON</h1>
+            <a href="#booking" class="btn-primary hidden md:inline-block">Book Tickets</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center pt-20">
+        <div class="container mx-auto px-4">
+            <h2 class="font-teko text-5xl md:text-7xl font-bold text-white uppercase tracking-wide">Presents</h2>
+            <h1 class="font-teko text-6xl md:text-9xl font-extrabold text-amber-400 text-glow uppercase tracking-wider my-2">Disco Dandiya Festival</h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10">The Biggest Dance All Night Festival!</p>
+            <a href="#booking" class="btn-primary text-xl py-4 px-10">
+                Get Your Early Bird Pass!
+            </a>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section id="details" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Date -->
+                <div class="card p-6 rounded-2xl text-center">
+                    <div class="mb-4 text-amber-400"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div>
+                    <h3 class="font-teko text-4xl font-bold mb-2 text-white">Date</h3>
+                    <p class="text-lg text-gray-300">23rd September 2025</p>
+                </div>
+                <!-- Time -->
+                <div class="card p-6 rounded-2xl text-center">
+                     <div class="mb-4 text-amber-400"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <h3 class="font-teko text-4xl font-bold mb-2 text-white">Time</h3>
+                    <p class="text-lg text-gray-300">6 PM Onwards</p>
+                </div>
+                <!-- Venue -->
+                <div class="card p-6 rounded-2xl text-center">
+                    <div class="mb-4 text-amber-400"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+                    <h3 class="font-teko text-4xl font-bold mb-2 text-white">Venue</h3>
+                    <p class="text-lg text-gray-300">Sagarika Resort</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 bg-black/20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto card rounded-2xl p-8 shadow-2xl">
+                <h2 class="font-teko text-5xl font-bold text-center mb-2 text-amber-400 text-glow">Book Your Ticket</h2>
+                <p class="text-center text-gray-400 mb-8">Fill in your details to secure your spot!</p>
+                
+                <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-black/20 p-4 rounded-lg">
+                    <div>
+                        <h3 class="text-2xl font-bold text-fuchsia-400">Early Bird Pass</h3>
+                        <p class="text-gray-400">Limited passes available!</p>
+                    </div>
+                    <p class="text-4xl font-bold text-white mt-2 md:mt-0">₹299</p>
+                </div>
+
+                <form id="booking-form">
+                    <div class="mb-4">
+                        <label for="name" class="block text-lg font-medium text-gray-300 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required class="w-full bg-gray-900/50 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-lg font-medium text-gray-300 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full bg-gray-900/50 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="quantity" class="block text-lg font-medium text-gray-300 mb-2">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" required class="w-full bg-gray-900/50 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-fuchsia-500">
+                    </div>
+
+                    <button type="submit" id="rzp-button1" class="w-full btn-primary text-xl py-4">
+                        Proceed to Pay
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-10 text-center border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <h3 class="font-teko text-2xl text-amber-400 mb-2">Contact Us</h3>
+            <p class="text-lg text-gray-400">8135018273 / 9365172605 / 7002453563</p>
+            <p class="mt-4 text-sm text-gray-500">&copy; 2025 Team Udayon. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Payment Status Modal -->
+    <div id="payment-modal" class="modal fixed inset-0 bg-black/80 items-center justify-center z-50">
+        <div class="card max-w-sm w-full mx-4 p-8 rounded-2xl text-center">
+            <div id="modal-icon" class="mb-4"></div>
+            <h3 id="modal-title" class="text-3xl font-bold mb-2"></h3>
+            <p id="modal-message" class="text-gray-300 mb-6"></p>
+            <button id="modal-close" class="btn-primary">Close</button>
+        </div>
+    </div>
+
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        const bookingForm = document.getElementById('booking-form');
+        const modal = document.getElementById('payment-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalIcon = document.getElementById('modal-icon');
+        const modalCloseBtn = document.getElementById('modal-close');
+
+        // Function to show the modal
+        function showModal(status, title, message) {
+            if (status === 'success') {
+                modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+            } else {
+                modalIcon.innerHTML = `<svg class="w-20 h-20 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+            }
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modal.classList.add('is-open');
+        }
+
+        // Close modal event
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.remove('is-open');
+        });
+
+        // Handle form submission
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const quantity = document.getElementById('quantity').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const amount = 299 * quantity;
+
+            var options = {
+                "key": "YOUR_KEY_ID", // IMPORTANT: Enter the Key ID from your Razorpay Dashboard
+                "amount": amount * 100, // Amount is in currency subunits (paise)
+                "currency": "INR",
+                "name": "Disco Dandiya Festival",
+                "description": `Early Bird Pass (x${quantity})`,
+                "image": "https://i.imgur.com/3g7bJsS.png", // A sample logo
+                "handler": function (response){
+                    // This function is called on successful payment
+                    showModal('success', 'Payment Successful!', `Thank you for your booking! Your Payment ID is ${response.razorpay_payment_id}. A confirmation will be sent to your email.`);
+                    // Here, you would typically send the payment ID and booking details to your server to save in a database.
+                    bookingForm.reset();
+                },
+                "prefill": {
+                    "name": name,
+                    "email": email,
+                },
+                "notes": {
+                    "event": "Disco Dandiya 2025",
+                    "quantity": quantity
+                },
+                "theme": {
+                    "color": "#c539c5"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.on('payment.failed', function (response){
+                // This function is called on payment failure
+                showModal('error', 'Payment Failed', `Something went wrong. Please try again. Error: ${response.error.description}`);
+            });
+            rzp1.open();
+        });
+    </script>
+</body>
+</html>
