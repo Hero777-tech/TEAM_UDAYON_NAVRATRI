@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     try {
         const { order_id, razorpay_payment_id, razorpay_signature, amount } = req.body;
         
-        // 1. VERIFY THE SIGNATURE
+        // Step 1: VERIFY THE SIGNATURE (This is crucial for security)
         const generated_signature = crypto
             .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET)
             .update(order_id + "|" + razorpay_payment_id)
@@ -26,15 +26,29 @@ module.exports = async (req, res) => {
             return res.status(400).json({ status: 'failure', message: 'Signature verification failed' });
         }
 
-        // 2. CAPTURE THE PAYMENT
-        // If the signature is valid, capture the payment to your account
+        // Step 2: CAPTURE THE PAYMENT
         await instance.payments.capture(razorpay_payment_id, amount, "INR");
         
-        // 3. RESPOND WITH SUCCESS
+        // Step 3: RESPOND WITH SUCCESS
         res.status(200).json({ status: 'success', orderId: order_id, paymentId: razorpay_payment_id });
 
     } catch (error) {
         console.error("Error verifying payment:", error);
+
+        // ** NEW LOGIC TO HANDLE 'ORDER_ALREADY_PAID' **
+        // Check if the error is because the payment was already captured (e.g., by auto-capture).
+        // If so, we'll consider it a success because the user has paid.
+        if (error.statusCode === 400 && error.error && error.error.reason === 'order_already_paid') {
+            console.log("Payment was already captured. Treating as success.");
+            // Return a success response to the website.
+            return res.status(200).json({ 
+                status: 'success', 
+                orderId: req.body.order_id, 
+                paymentId: req.body.razorpay_payment_id 
+            });
+        }
+
+        // For all other types of errors, respond with a failure.
         res.status(500).json({ status: 'failure', message: 'Internal Server Error' });
     }
 };
