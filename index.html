@@ -163,7 +163,7 @@
                 <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-black/30 p-4 rounded-lg">
                     <div>
                         <h3 class="text-2xl font-bold text-white">Early Bird Pass</h3>
-                        <p class="text-orange-400">Limited time offer!</p>
+                        <p class="text-orange-400">Special offer for 2 tickets: ₹399!</p>
                     </div>
                     <p class="text-4xl font-bold text-white mt-2 md:mt-0">₹249</p>
                 </div>
@@ -294,10 +294,18 @@
                 submitButton.disabled = true;
                 submitButton.textContent = 'Processing...';
 
-                const quantity = document.getElementById('quantity').value;
+                // **MODIFIED PRICE LOGIC STARTS HERE**
+                const quantity = parseInt(document.getElementById('quantity').value, 10);
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
-                const amount = 249 * quantity; // <<-- PRICE UPDATED HERE
+                
+                let amount;
+                if (quantity === 2) {
+                    amount = 399; // Special price for 2 tickets
+                } else {
+                    amount = 249 * quantity; // Regular price for other quantities
+                }
+                // **MODIFIED PRICE LOGIC ENDS HERE**
 
                 // Step 1: Create the order on your server by calling the serverless function
                 try {
